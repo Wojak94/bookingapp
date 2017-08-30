@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   get '/success', to: 'static_pages#success'
+   root 'reservations#new'
+   post 'reservations/create'
+   resources :reservations
+
 end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2017-08-29
+  hour: 2017-08-29 19:27:40
+  is_full: false
+
+two:
+  day: 2017-08-29
+  hour: 2017-08-29 19:27:40
+  is_full: false

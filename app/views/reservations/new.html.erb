@@ -1,0 +1,8 @@
+<%= render 'shared/error_messages' %>
+<%= simple_form_for @reservation do |f| %>
+  <%= f.input :name, label: 'Imię i nazwisko', error: false, class: 'form-control is-valid' %>
+  <%= f.input :email, label: 'E-mail', error: false, class: 'form-control is-valid' %>
+  <%= f.association :show, label: 'Godzina pokazu', error: false, collection: Show.find_by_sql("SELECT * FROM shows  WHERE is_full = false ORDER BY hour ASC"),
+   :label_method => lambda { |show| "#{show.hour.strftime("%R")}" } , prompt: "Wybierz godzinę" %>
+  <%= f.button :submit, "Zarezerwuj!", class: "btn btn-outline-success" %>
+<% end %>
