@@ -1,8 +1,17 @@
 <%= render 'shared/error_messages' %>
 <%= simple_form_for @reservation do |f| %>
-  <%= f.input :name, label: 'Imię i nazwisko', error: false, class: 'form-control is-valid' %>
-  <%= f.input :email, label: 'E-mail', error: false, class: 'form-control is-valid' %>
-  <%= f.association :show, label: 'Godzina pokazu', error: false, collection: Show.find_by_sql("SELECT * FROM shows  WHERE is_full = false ORDER BY hour ASC"),
+  <%= f.input :name, label: 'Imię i nazwisko', :label_html => { :class => 'form_label' }, error: false, class: 'form-control is-valid' %>
+
+  <%= f.input :email, label: 'E-mail', :label_html => { :class => 'form_label' }, error: false, class: 'form-control is-valid' %>
+
+  <%= f.input :film, label: 'Przestrzeń', :label_html => { :class => 'form_label' }, error: false,
+   :collection => ["Przestrzeń 1: Antropologia a'la VR", "Przestrzeń 2: Magia", "Przestrzeń 3: Widowisko", "Przestrzeń 4: Dokument",
+           "Przestrzeń 5: (Fantastyczna) fabuła", "Przestrzeń 6: Wehikuł czasu", "Przestrzeń 7: Muzyka"], class: 'form-control is-valid',
+  prompt: "Wybierz przestrzeń" %>
+
+  <%= f.association :show, label: 'Godzina pokazu', :label_html => { :class => 'form_label' }, error: false,
+   collection: Show.find_by_sql("SELECT * FROM shows  WHERE is_full = false ORDER BY hour ASC"),
    :label_method => lambda { |show| "#{show.hour.strftime("%R")}" } , prompt: "Wybierz godzinę" %>
-  <%= f.button :submit, "Zarezerwuj!", class: "btn btn-outline-success" %>
+
+  <%= f.button :submit, "Zarezerwuj!", class: "btn btn-success btn-lg" %>
 <% end %>

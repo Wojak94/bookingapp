@@ -27,6 +27,10 @@ a:hover {
 html,
 body {
   height: 100%;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-color: #333;
 }
 body {
@@ -49,6 +53,9 @@ body {
   vertical-align: top;
 }
 .cover-container {
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 30px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -157,4 +164,9 @@ body {
   .cover-container {
     width: 42rem;
   }
+}
+
+.form_label {
+    font-weight: 400;
+    font-size: 20px;
 }

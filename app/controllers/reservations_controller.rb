@@ -12,8 +12,12 @@ class ReservationsController < ApplicationController
      end
   end
 
+
+
   private
      def res_params
         params.require(:reservation).permit(:name, :email, :show_id)
      end
+@films = ['dupa', 'dupa2', 'xD']
+
 end
